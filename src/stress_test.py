@@ -2,7 +2,7 @@ import requests
 from concurrent.futures import ThreadPoolExecutor
 
 url = 'http://18.199.86.114/run' #This IP can channge depending on which model you are testing
-#eos43at = http://3.75.227.184/
+#ersiliaos/eos43at = http://3.75.227.184/
 #ersiliaos/eos3b5e = http://18.199.86.114/
 #ersiliaos/eos9ei3 = http://35.159.128.242/
 #To run this
