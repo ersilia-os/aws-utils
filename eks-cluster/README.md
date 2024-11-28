@@ -10,5 +10,6 @@ $ aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 
 Scaling Up &Down
+================
 $ kubectl scale deployment my-deployment --replicas=0 
 $ kubectl scale deployment my-deployment --replicas=2
