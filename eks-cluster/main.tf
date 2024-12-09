@@ -75,7 +75,7 @@ module "eks" {
     one = {
       name = "worker-node-1"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 2
@@ -85,7 +85,7 @@ module "eks" {
     two = {
       name = "worker-node-2"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 2
