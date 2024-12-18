@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend1
+  name: frontend1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend1
+  template:
+    metadata:
+      labels:
+        app: frontend1
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        ports:
+        - containerPort: 80
+          protocol: TCP
