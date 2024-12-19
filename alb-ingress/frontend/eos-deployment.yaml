@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ersiliaos-eos80ch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eos-demo
+  template:
+    metadata:
+      labels:
+        app: eos-demo
+    spec:
+      containers:
+        - name: eos80ch
+          image: ersiliaos/eos80ch:latest
+          ports:
+            - containerPort: 80

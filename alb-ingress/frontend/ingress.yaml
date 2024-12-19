@@ -24,3 +24,10 @@ spec:
               name: frontend2service
               port: 
                 number: 80
+        - path: /eos
+          pathType: Exact
+          backend:
+            service:
+              name: eos-demo-service
+              port: 
+                number: 80                
