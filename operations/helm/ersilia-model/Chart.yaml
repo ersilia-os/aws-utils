@@ -1,0 +1,4 @@
+name: ersilia-model
+description: Deployment template for ersilia models
+apiVersion: 1.0.0
+version: 1.0.0

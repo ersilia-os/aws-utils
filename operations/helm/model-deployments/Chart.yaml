@@ -1,0 +1,14 @@
+name: ersilia-model-deployments
+description: Deployment of ersilia models
+apiVersion: 1.0.0
+version: 1.0.0
+
+dependencies:
+  - name: ersilia-model
+    alias: eos3804
+    version: "1.0.0"
+    repository: "file://../ersilia-model"
+  - name: ersilia-model
+    alias: eos3nn9
+    version: "1.0.0"
+    repository: "file://../ersilia-model"
