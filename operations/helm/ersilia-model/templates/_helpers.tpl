@@ -12,17 +12,17 @@ app.kubernetes.io/name: {{ .modelCollectionName }}-model
 {{- if eq .modelSize "500Mi" }}
 memory: 700Mi
 {{- else if eq .modelSize "1Gi" }}
-memory: 1.2Gi
+memory: 1200Mi
 {{- else if eq .modelSize "2Gi" }}
-memory: 2.2Gi
+memory: 2200Mi
 {{- else if eq .modelSize "3Gi" }}
-memory: 3.2Gi
+memory: 3200Mi
 {{- else if eq .modelSize "4Gi" }}
-memory: 4.3Gi
+memory: 4300Mi
 {{- else if eq .modelSize "5Gi" }}
-memory: 5.3Gi
+memory: 5300Mi
 {{- else if eq .modelSize "6Gi" }}
-memory: 6.4Gi
+memory: 6400Mi
 {{- end }}
 {{- end }}
 
