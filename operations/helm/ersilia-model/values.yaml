@@ -1,2 +1,2 @@
-# default memory requirement
-memoryRequirement: 1Gi
+modelCollectionName: eos
+models:

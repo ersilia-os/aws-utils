@@ -1,7 +1,11 @@
-eos3804:
-  modelName: '3804'
-  memoryRequirement: 1Gi
+eos:
+  # this can be used to separate various model "groupings"
+  modelCollectionName: eos
+  models:
+    - name: '3804'
+      memoryRequirement: 1Gi
 
-eos3nn9:
-  modelName: '3nn9'
-  memoryRequirement: 6Gi
+    - name: '3nn9'
+      memoryRequirement: 6Gi
+      # optional image override, by default it will use: ersiliaos/{modelCollectionName}{$model.name}:latest
+      image: ersiliaos/eos3nn9:latest

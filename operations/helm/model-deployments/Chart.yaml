@@ -5,10 +5,6 @@ version: 1.0.0
 
 dependencies:
   - name: ersilia-model
-    alias: eos3804
-    version: "1.0.0"
-    repository: "file://../ersilia-model"
-  - name: ersilia-model
-    alias: eos3nn9
+    alias: eos
     version: "1.0.0"
     repository: "file://../ersilia-model"
