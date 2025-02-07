@@ -1,0 +1,1120 @@
+---
+# Source: ersilia-model-deployments/charts/eos/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: eos-models
+  labels:
+    app.kubernetes.io/name: eos-models
+    app.kubernetes.io/component: models-namespace
+    app.kubernetes.io/part-of: eos-models
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-3804
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-3804
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-3804
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-3nn9
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-3nn9
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-3nn9
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-4e40
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4e40
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-4e40
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-4wt0
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4wt0
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-4wt0
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-4zfy
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4zfy
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-4zfy
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-7d58
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-7d58
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-7d58
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-80ch
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-80ch
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-80ch
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-8aa5
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-8aa5
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-8aa5
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-9gg2
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-9gg2
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-9gg2
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: eos-model-9ivc
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-9ivc
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: eos-model-9ivc
+    app.kubernetes.io/name: eos-model
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-3804
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-3804
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-3804
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-3804
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos3804:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-3nn9
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-3nn9
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-3nn9
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-3nn9
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos3nn9:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-4e40
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4e40
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-4e40
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-4e40
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos4e40:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-4wt0
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4wt0
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-4wt0
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-4wt0
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos4wt0:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-4zfy
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-4zfy
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-4zfy
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-4zfy
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos4zfy:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-7d58
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-7d58
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-7d58
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-7d58
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos7d58:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-80ch
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-80ch
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-80ch
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-80ch
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos80ch:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-8aa5
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-8aa5
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-8aa5
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-8aa5
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos8aa5:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-9gg2
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-9gg2
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-9gg2
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-9gg2
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos9gg2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
+---
+# Source: ersilia-model-deployments/charts/eos/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eos-model-9ivc
+  namespace: eos-models
+  labels:
+    app.kubernetes.io/instance: eos-model-9ivc
+    app.kubernetes.io/name: eos-model
+    app.kubernetes.io/component: model
+    app.kubernetes.io/part-of: eos-models
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: eos-model-9ivc
+      app.kubernetes.io/name: eos-model
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: eos-model-9ivc
+        app.kubernetes.io/name: eos-model
+        app.kubernetes.io/component: model
+        app.kubernetes.io/part-of: eos-models
+    spec:
+      containers:
+        - name: model
+          image: ersiliaos/eos9ivc:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources: 
+            requests:
+              cpu: 10m
+              memory: 200Mi
+            limits:
+              cpu: 1000m
+              memory: 1.2Gi
+          livenessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          readinessProbe:
+            initialDelaySeconds: 15
+            timeoutSeconds: 20
+            periodSeconds: 15
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 80
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          # TODO: volume mounts
+          # TODO: security context
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      # TODO: volumes
+      # TODO: security context
+      securityContext: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+                # TODO: add memory label to node pools and update these
+              - key: name
+                operator: In
+                values:
+                  - worker-node-1
