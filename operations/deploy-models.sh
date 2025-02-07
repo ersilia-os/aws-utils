@@ -23,4 +23,5 @@ echo "Applying deployment..."
 kubectl apply -f $DEPLOYMENTS_DIR/$DEPLOYMENT_NAME.yaml
 
 git add $DEPLOYMENTS_DIR/$DEPLOYMENT_NAME.yaml
-# git commit -m "Deployment completed [$DEPLOYMENT_NAME]"
+git commit -m "Deployment completed [$DEPLOYMENT_NAME]"
+git push
