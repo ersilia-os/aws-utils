@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.modelCollectionName }}-models
+  labels:
+    app.kubernetes.io/name: {{ .Values.modelCollectionName }}-models
+    app.kubernetes.io/component: models-namespace
+    app.kubernetes.io/part-of: {{ .Values.modelCollectionName }}-models

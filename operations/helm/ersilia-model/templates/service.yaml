@@ -1,19 +1,28 @@
+{{ $values := .Values | default dict }}
+
+{{- range $key, $model := $values.models }}
+{{ $instanceName := nospace (cat $values.modelCollectionName "-model-" $model.name) }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: eos{{ .Values.modelName }}
-  namespace: models
+  name: {{ $instanceName }}
+  namespace: {{ $values.modelCollectionName }}-models
+  labels:
+    app.kubernetes.io/instance: {{ $instanceName }}
+    {{ include "lib.common.labels" $values | indent 4 | trim }}
 spec:
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
   selector:
-    app: eos
-    model: {{ squote .Values.modelName }}
+    app.kubernetes.io/instance: {{ $instanceName }}
+    {{ include "lib.common.selector" $values | indent 4 | trim }}
   type: ClusterIP
   sessionAffinity: None
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
   internalTrafficPolicy: Cluster
+---
+{{- end }}
