@@ -4,6 +4,7 @@ metadata:
   labels:
     app: frontend2
   name: frontend2service
+  namespace: model-deploy
 spec:
   ports:
   - port: 80

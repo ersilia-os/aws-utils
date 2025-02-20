@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: models
+  name: ingress-resources
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+spec:
+  ingressClassName: alb
+  rules:
+    - host: www.eosmodels.com
+      http:
+        paths:
+          - path: /malaria
+            pathType: Exact
+            backend:
+              service:
+                name: eos-demo-service
+                port: 
+                  number: 80
+          - path: /nginx
+            pathType: Exact
+            backend:
+              service:
+                name: nginx-svc
+                port: 
+                  number: 80
+          # - path: /eos
+          #   pathType: Exact
+          #   backend:
+          #     service:
+          #       name: eos-demo-service
+          #       port: 
+          #         number: 80

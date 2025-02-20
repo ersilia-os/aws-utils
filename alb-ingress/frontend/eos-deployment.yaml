@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ersiliaos-eos80ch
+  namespace: model-deploy
 spec:
   replicas: 1
   selector:

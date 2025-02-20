@@ -62,3 +62,7 @@ Deploy ingress
 - Deploy in the same namespace as deployments
 - $ kubectl -n models apply -f ingress.yaml
 - This will deploy the rules, pointing to the services
+-------------------------------------------------------------
+- Check how man pods can be in a node
+$ kubectl get nodes -o custom-columns="NAME: .metadata.name, PODS_CAPACITY:.status.allocatable.pods"
+

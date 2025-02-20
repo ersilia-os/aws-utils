@@ -4,6 +4,7 @@ metadata:
   labels:
     app: frontend1
   name: frontend1
+  namespace: model-deploy
 spec:
   replicas: 1
   selector:

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-12-24T07:17:35Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: frontend1
+  name: frontend1
+  namespace: model-deploy
+  resourceVersion: "9856"
+  uid: 2a0b7df4-a0e2-45f5-829c-a75f969bc2a2
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 172.20.170.75
+  clusterIPs:
+  - 172.20.170.75
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30657
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: frontend1
+  sessionAffinity: None
+  type: ClusterIP

@@ -953,7 +953,7 @@ spec:
     spec:
       containers:
       - args:
-        - --cluster-name=h3d-eks-cluster-gRZl2
+        - --cluster-name=your-cluster-name
         - --ingress-class=alb
         image: public.ecr.aws/eks/aws-load-balancer-controller:v2.11.0
         livenessProbe:
