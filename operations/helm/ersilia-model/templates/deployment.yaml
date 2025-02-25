@@ -9,6 +9,8 @@ metadata:
   name: {{ $instanceName }}
   namespace: {{ $values.modelCollectionName }}-models
   labels:
+    ersilia.modelid: {{ quote $model.name }}
+    ersilia.modelsize: {{ $model.modelSize }}
     app.kubernetes.io/instance: {{ $instanceName }}
     {{ include "lib.common.labels" $values | indent 4 | trim }}
 spec:
