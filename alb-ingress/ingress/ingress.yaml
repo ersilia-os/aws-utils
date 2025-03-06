@@ -16,6 +16,6 @@ spec:
           pathType: Exact
           backend:
             service:
-              name: ingress-nginx-controller-clusterip
+              name: ingress-nginx-controller
               port: 
                 number: 80
