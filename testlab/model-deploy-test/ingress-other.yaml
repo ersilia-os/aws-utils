@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-rules
+  namespace: model-deploy
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: eks-models
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-09a92ad21eebaa7b2, subnet-09293007ab571ad30, subnet-060d8bb7d342ef91c
+    #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:443413310934:certificate/334109f3-3d73-473c-8cf9-347000fd1ef6
+    #alb.ingress.kubernetes.io/ingress.class: alb
+spec:
+  ingressClassName: alb
+  rules:
+  - host: myeosmodel.com
+    http:
+      paths:
+        - path: /httpd
+          pathType: Exact
+          backend:
+            service:
+              name: frontend1service
+              port: 
+                number: 80
+        - path: /nginx
+          pathType: Exact
+          backend:
+            service:
+              name: frontend2service
+              port: 
+                number: 80
+        - path: /eos
+          pathType: Exact
+          backend:
+            service:
+              name: eos-demo-service
+              port: 
+                number: 80                
