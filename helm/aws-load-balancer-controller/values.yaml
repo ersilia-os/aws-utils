@@ -1,3 +1,7 @@
 aws-load-balancer-controller:
   clusterName: h3d-eks-cluster-gRZl2
   replicaCount: 1
+
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::443413310934:role/AmazonEKSLoadBalancerControllerRole
