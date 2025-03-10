@@ -1,2 +1,11 @@
 ingress-nginx:
   namespace: ingress-nginx
+
+
+  controller:
+    ingressClass: alb
+    ingressClassResource:
+      enabled: false
+
+    service:
+      enabled: false
