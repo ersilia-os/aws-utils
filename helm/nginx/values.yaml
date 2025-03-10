@@ -1,0 +1,8 @@
+ingress:
+  albName: ersilia-nginx-ingress
+  ingressClassName: alb
+
+nginx:
+  namespaceOverride: ingress-nginx
+
+  # serverBlock:
