@@ -1,0 +1,6 @@
+apiVersion: 1.0.0
+name: debug-tools
+description: A Helm chart for implementing debugging tools
+version: 1.0.0
+
+dependencies:
