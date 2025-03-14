@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 provider "aws" {
   region = var.region
   #access_key = AWS_ACCESS_KEY_ID
@@ -14,11 +17,11 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "h3d-eks-cluster${random_string.suffix.result}"
+  cluster_name = "h3d-eks-cluster-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
-  length  = 4
+  length  = 5
   special = false
 }
 
@@ -75,22 +78,33 @@ module "eks" {
     one = {
       name = "worker-node-1"
 
-      instance_types = ["t2.micro"]
+
+      instance_types = ["t3.small"]
+      market_type = "spot"
 
       min_size     = 1
       max_size     = 2
       desired_size = 1
+      tags = {
+        "ersilia.supportedModelSize.500mb" = true
+        "ersilia.supportedModelSize.1Gi" = true
+      }
     }
 
     two = {
-      name = "worker-node-2"
+      name = "worker-node-1"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.small"]
+      market_type = "spot"
 
       min_size     = 1
       max_size     = 2
       desired_size = 1
-    }
+            tags = {
+        "ersilia.supportedModelSize.500mb" = true
+        "ersilia.supportedModelSize.1Gi" = true
+      }
+    }    
   }
 }
 
