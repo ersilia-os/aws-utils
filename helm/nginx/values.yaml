@@ -15,3 +15,75 @@ nginx:
         proxy_pass http://eos-model-3804.eos-models.svc.cluster.local:8080/;
       }
     }
+    server {
+      listen 8081;
+      
+      location /models/4e40/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4e40.eos-models.svc.cluster.local:8081/;
+      }
+    }
+    server {
+      listen 8082;
+      
+      location /models/4wt0/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4wt0.eos-models.svc.cluster.local:8082/;
+      }
+    }    
+    server {
+      listen 8083;
+      
+      location /models/4zfy/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4zfy.eos-models.svc.cluster.local:8083/;
+      }
+    }    
+    server {
+      listen 8084;
+      
+      location /models/7d58/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-7d58.eos-models.svc.cluster.local:8084/;
+      }
+    }          
+    server {
+      listen 8085;
+      
+      location /models/80ch/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-80ch.eos-models.svc.cluster.local:8085/;
+      }
+    }      
+    server {
+      listen 8086;
+      
+      location /models/8aa5/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-8aa5.eos-models.svc.cluster.local:8086/;
+      }
+    }    
+    server {
+      listen 8087;
+      
+      location /models/9gg2/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-9gg2.eos-models.svc.cluster.local:8087/;
+      }
+    }       
+    server {
+      listen 8088;
+      
+      location /models/9ivc/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-9ivc.eos-models.svc.cluster.local:8088/;
+      }
+    }        
