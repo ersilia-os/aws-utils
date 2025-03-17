@@ -9,81 +9,81 @@ nginx:
     server {
       listen 8080;
       
-      location /models/3804/ {
+      location /models/eos3804/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-3804.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos3804.eos-models.svc.cluster.local:8080/;
       }
     }
     server {
       listen 8080;
       
-      location /models/4e40/ {
+      location /models/eos4e40/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-4e40.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos4e40.eos-models.svc.cluster.local:8080/;
       }
     }
     server {
       listen 8080;
       
-      location /models/4wt0/ {
+      location /models/eos4wt0/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-4wt0.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos4wt0.eos-models.svc.cluster.local:8080/;
       }
     }    
     server {
       listen 8080;
       
-      location /models/4zfy/ {
+      location /models/eos4zfy/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-4zfy.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos4zfy.eos-models.svc.cluster.local:8080/;
       }
     }    
     server {
       listen 8080;
       
-      location /models/7d58/ {
+      location /models/eos7d58/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-7d58.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos7d58.eos-models.svc.cluster.local:8080/;
       }
     }          
     server {
       listen 8080;
       
-      location /models/80ch/ {
+      location /models/eos80ch/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-80ch.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos80ch.eos-models.svc.cluster.local:8080/;
       }
     }      
     server {
       listen 8080;
       
-      location /models/8aa5/ {
+      location /models/eos8aa5/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-8aa5.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos8aa5.eos-models.svc.cluster.local:8080/;
       }
     }    
     server {
       listen 8080;
       
-      location /models/9gg2/ {
+      location /models/eos9gg2/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-9gg2.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos9gg2.eos-models.svc.cluster.local:8080/;
       }
     }       
     server {
       listen 8080;
       
-      location /models/9ivc/ {
+      location /models/eos9ivc/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-9ivc.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-eos9ivc.eos-models.svc.cluster.local:8080/;
       }
     }        
