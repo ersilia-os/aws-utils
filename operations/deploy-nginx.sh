@@ -1,8 +1,8 @@
 WD=$PWD
-DEPLOYMENTS_DIR="$WD/.deployments/models"
+DEPLOYMENTS_DIR="$WD/.deployments/nginx"
 DEPLOYMENT_NAME=$(date -u +'%Y-%m-%d_%H-%M')
-DEPLOYMENT_NAMESPACE="eos-models"
-HELM_PATH="helm/model-deployments"
+DEPLOYMENT_NAMESPACE="ingress-nginx"
+HELM_PATH="helm/nginx"
 
 mkdir -p $DEPLOYMENTS_DIR
 
