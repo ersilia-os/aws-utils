@@ -8,3 +8,5 @@ models:
     modelSize: 6Gi
     # optional image override, by default it will use: ersiliaos/{modelCollectionName}{$model.name}:latest
     image: ersiliaos/eos3nn9:latest
+    # flag to disable memory limit (not safe for scaling)
+    noMemoryLimit: true

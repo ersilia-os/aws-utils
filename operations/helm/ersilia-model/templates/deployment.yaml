@@ -34,6 +34,8 @@ spec:
   template:
     metadata:
       labels:
+        ersilia.modelid: {{ quote $model.name }}
+        ersilia.modelsize: {{ $model.modelSize }}
         app.kubernetes.io/instance: {{ $instanceName }}
         {{ include "lib.common.labels" $values | indent 8 | trim }}
     spec:
@@ -54,7 +56,9 @@ spec:
               memory: 200Mi
             limits:
               cpu: 1000m
+              {{- if not $model.noMemoryLimit }}
               {{ include "lib.modelSize.limitLookup" $model | indent 10 | trim }}
+              {{- end }}
           livenessProbe:
             initialDelaySeconds: 15
             timeoutSeconds: 20
@@ -79,18 +83,15 @@ spec:
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       schedulerName: default-scheduler
-      # TODO: volumes
-      # TODO: security context
       securityContext: {}
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-                # TODO: add memory label to node pools and update these
-              - key: name
+              - key: ersilia.supportedModelSize
                 operator: In
                 values:
-                  {{ include "lib.modelSize.nodeLabelsLookup" $model | indent 12 | trim }}
+                  {{ include "lib.modelSize.nodeLabelsLookup" $model | indent 18 | trim }}
 ---
 {{- end }}

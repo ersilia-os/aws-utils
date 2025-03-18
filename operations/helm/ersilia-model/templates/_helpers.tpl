@@ -26,21 +26,31 @@ memory: 6400Mi
 {{- end }}
 {{- end }}
 
-# TODO: add memory label to node pools and update these
 {{- define "lib.modelSize.nodeLabelsLookup" }}
 {{- if eq .modelSize "500Mi" }}
-- worker-node-1
+- 500Mi
+- 1Gi
+- 2Gi
+- 4Gi
+- 8Gi
 {{- else if eq .modelSize "1Gi" }}
-- worker-node-1
+- 1Gi
+- 2Gi
+- 4Gi
+- 8Gi
 {{- else if eq .modelSize "2Gi" }}
-- worker-node-1
+- 2Gi
+- 4Gi
+- 8Gi
 {{- else if eq .modelSize "3Gi" }}
-- worker-node-1
+- 4Gi
+- 8Gi
 {{- else if eq .modelSize "4Gi" }}
-- worker-node-1
+- 4Gi
+- 8Gi
 {{- else if eq .modelSize "5Gi" }}
-- worker-node-1
+- 8Gi
 {{- else if eq .modelSize "6Gi" }}
-- worker-node-1
+- 8Gi
 {{- end }}
 {{- end }}

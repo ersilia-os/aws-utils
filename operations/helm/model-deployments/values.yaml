@@ -5,33 +5,44 @@ eos:
     - name: '3804'
       # size known to be needed for the model, a buffer of 200Mi is added on all values
       # options: 500Mi, 1Gi, 2Gi, ... , 6Gi
-      modelSize: 1Gi
+      modelSize: 500Mi
       # optional image override, by default it will use: ersiliaos/{modelCollectionName}{$model.name}:latest
       image: ersiliaos/eos3804:latest
+      # optional flag to disable memory limit (for testing only, should not be used for PRODUCTION)
+      noMemoryLimit: true
 
     - name: '3nn9'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '4e40'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '4wt0'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '4zfy'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '7d58'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '80ch'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '8aa5'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '9gg2'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
 
     - name: '9ivc'
-      modelSize: 1Gi
+      modelSize: 500Mi
+      noMemoryLimit: true
