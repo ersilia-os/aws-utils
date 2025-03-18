@@ -39,7 +39,7 @@ nginx:
       location /models/eos4zfy/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://eos-model-eos4zfy.eos-models.svc.cluster.local:8080/;
+        proxy_pass http://eos-model-4zfy.eos-models.svc.cluster.local:8080/;
       }
     }    
     server {
