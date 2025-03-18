@@ -89,6 +89,9 @@ module "eks" {
         "ersilia.supportedModelSize.500mb" = true
         "ersilia.supportedModelSize.1Gi" = true
       }
+      labels = {
+        "ersilia.supportedModelSize"="2Gi"
+      }
     }
 
     two = {
@@ -106,6 +109,9 @@ module "eks" {
       tags = {
         "ersilia.supportedModelSize.500mb" = true
         "ersilia.supportedModelSize.1Gi" = true
+      }
+      labels = {
+        "ersilia.supportedModelSize"="2Gi"
       }
     }    
   }
