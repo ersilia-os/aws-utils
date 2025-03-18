@@ -14,11 +14,11 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "h3d-eks-cluster${random_string.suffix.result}"
+  cluster_name = "h3d-eks-cluster-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
-  length  = 4
+  length  = 5
   special = false
 }
 
@@ -73,24 +73,47 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "worker-node-1"
+      name = "ersilia-models-2g"
 
-      instance_types = ["t2.micro"]
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      instance_types = ["t3.medium"]
+      market_type = "spot"
+
+      scaling_config = {
+        desired_size = 1
+        max_size     = 2
+        min_size     = 1
+        market_type = "spot"
+      }
+      tags = {
+        "ersilia.supportedModelSize.500mb" = true
+        "ersilia.supportedModelSize.1Gi" = true
+      }
+      labels = {
+        "ersilia.supportedModelSize"="2Gi"
+      }
     }
 
     two = {
-      name = "worker-node-2"
+      name = "ersilia-models-4g"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.medium"]
+      market_type = "spot"
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
-    }
+      scaling_config = {
+        desired_size = 1
+        max_size     = 2
+        min_size     = 1
+        market_type = "spot"
+      }
+      tags = {
+        "ersilia.supportedModelSize.500mb" = true
+        "ersilia.supportedModelSize.1Gi" = true
+      }
+      labels = {
+        "ersilia.supportedModelSize"="2Gi"
+      }
+    }    
   }
 }
 
