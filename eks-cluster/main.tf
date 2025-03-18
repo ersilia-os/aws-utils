@@ -73,15 +73,17 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "worker-node-1"
+      name = "ersilia-models-2g"
 
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.medium"]
       market_type = "spot"
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      scaling_config{
+        desired_size = 1
+        max_size     = 2
+        min_size     = 1
+      }
       tags = {
         "ersilia.supportedModelSize.500mb" = true
         "ersilia.supportedModelSize.1Gi" = true
@@ -89,15 +91,17 @@ module "eks" {
     }
 
     two = {
-      name = "worker-node-1"
+      name = "ersilia-models-4g"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.medium"]
       market_type = "spot"
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
-            tags = {
+      scaling_config{
+        desired_size = 1
+        max_size     = 2
+        min_size     = 1
+      }
+      tags = {
         "ersilia.supportedModelSize.500mb" = true
         "ersilia.supportedModelSize.1Gi" = true
       }
