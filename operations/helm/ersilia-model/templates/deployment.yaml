@@ -2,7 +2,7 @@
 
 {{- range $key, $model := $values.models }}
 {{ $instanceName := nospace (cat $values.modelCollectionName "-model-" $model.name) }}
-{{ $existingInstance := (lookup "apps/v1" "Deployment" $values.modelCollectionName $instanceName) }}
+{{ $existingInstance := (lookup "apps/v1" "Deployment" (cat $values.modelCollectionName "-models") $instanceName) }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
