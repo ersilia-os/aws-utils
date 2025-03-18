@@ -83,6 +83,7 @@ module "eks" {
         desired_size = 1
         max_size     = 2
         min_size     = 1
+        market_type = "spot"
       }
       tags = {
         "ersilia.supportedModelSize.500mb" = true
@@ -100,6 +101,7 @@ module "eks" {
         desired_size = 1
         max_size     = 2
         min_size     = 1
+        market_type = "spot"
       }
       tags = {
         "ersilia.supportedModelSize.500mb" = true
