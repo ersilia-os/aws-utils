@@ -1235,7 +1235,7 @@ spec:
     spec:
       containers:
         - name: model
-          image: ersiliaos/eos5axz
+          image: ersiliaos/eos5axz:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
