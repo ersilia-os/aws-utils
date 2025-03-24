@@ -86,4 +86,13 @@ nginx:
         proxy_set_header X-Real-IP $remote_addr;
         proxy_pass http://eos-model-9ivc.eos-models.svc.cluster.local:8080/;
       }
+    }
+    server {
+      listen 8080;
+      
+      location /models/eos5axz/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-5axz.eos-models.svc.cluster.local:8080/;
+      }
     }        

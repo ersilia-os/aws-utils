@@ -1,0 +1,420 @@
+---
+# Source: nginx/charts/nginx/templates/networkpolicy.yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ersilia-nginx
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: ersilia
+      app.kubernetes.io/name: nginx
+  policyTypes:
+    - Ingress
+    - Egress
+  egress:
+    - {}
+  ingress:
+    - ports:
+        - port: 8080
+        - port: 8443
+---
+# Source: nginx/charts/nginx/templates/pdb.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: ersilia-nginx
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: ersilia
+      app.kubernetes.io/name: nginx
+---
+# Source: nginx/charts/nginx/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ersilia-nginx
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+automountServiceAccountToken: false
+---
+# Source: nginx/charts/nginx/templates/tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ersilia-nginx-tls
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+type: kubernetes.io/tls
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuekNDQW9lZ0F3SUJBZ0lRYmVGcTdIOU11c1RhbmorRS9HcXVZakFOQmdrcWhraUc5dzBCQVFzRkFEQVQKTVJFd0R3WURWUVFERXdodVoybHVlQzFqWVRBZUZ3MHlOVEF6TVRBeE5EUXpNVEZhRncweU5qQXpNVEF4TkRRegpNVEZhTUJneEZqQVVCZ05WQkFNVERXVnljMmxzYVdFdGJtZHBibmd3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBCkE0SUJEd0F3Z2dFS0FvSUJBUUM0dWxDNU02eHh1NDlmRUd3bSsrSkNyNEhyQXUzT0RCNGdwNnJ3a05FaEh0ZDcKQnhDL3Z5aU1CTFp6QUQ5clgvczBXNWIxMXE4U3ZoRHpsMi8yeXBPK0VlNkp2WlNCNHpQUWxyTmtIWHo2VVl3VAo4UW9XZS82dzU4M2VwMUZxU2RJU0hsY0EzV08yMlp1VFZ0TGdOcU5ONE9WS1FsTWxLaUhKZU93WWZqem5yMUJICnRZY0xFNjJwbHVicGJ6ZWJ5Vm1nWFpoVjRQa3BJeVFzbUVmL0NMVFhaNk5QSTVQMTZXV1p1MzhZc1BJdkNPZlMKVUJwbTdkYWc0UjI2czdLN2JkdlduTTZ6b1I3RFFCdVRyQW5vSVlKVnZXVlZmWHQzRVJkMHdndHFkczBZV3doeApDYnAzUGdSdzFzOE5MZ1pSMTYzOEROaWIrRS9handsM0htbk1EQktIQWdNQkFBR2pnZWt3Z2VZd0RnWURWUjBQCkFRSC9CQVFEQWdXZ01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFNQmdOVkhSTUIKQWY4RUFqQUFNQjhHQTFVZEl3UVlNQmFBRlBYdlJBZldleHF5TTVnbjF5OWFRT0NuMC9mWk1JR0ZCZ05WSFJFRQpmakI4Z2cxbGNuTnBiR2xoTFc1bmFXNTRnaHRsY25OcGJHbGhMVzVuYVc1NExtbHVaM0psYzNNdGJtZHBibmlDCkgyVnljMmxzYVdFdGJtZHBibmd1YVc1bmNtVnpjeTF1WjJsdWVDNXpkbU9DTFdWeWMybHNhV0V0Ym1kcGJuZ3UKYVc1bmNtVnpjeTF1WjJsdWVDNXpkbU11WTJ4MWMzUmxjaTVzYjJOaGJEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBWjAwenlZZTVTSUxhZ2ZVTHNVTS9Dcnd6dHBjRE4zQkhzejI4aEJQbWNJTE05TXUzbnlqZzQ1cG0zSjY4CnVyYVlnVmt0cW9qbTlMcUFMV3FjQXJmYWlRSFBsV1lzeEdpTGFZckF3S2ptaWt6ck1oQ0R0QWhlSm5NODZuUVUKbVRESW0waHRjWnVNb3NGdTBqT1ZCYjIxQm5RTzR1eHNQeXRmTmRxajVNQ3B5c0RHY3lKcVU0S2FrNFh4Y0lIMQpNdit3RVlrZU9LYUpQbzczYkxPWmxyVjFvSFZOMVhGUm1NWlZPL2wwTnFITk1lcmFpcUxVSXVxcUl3eFh4Y3RMCk1PSEdCRUxPVDJsVWdyRjdNbWYzWnlFckR5dSticzNwcHdCaG1selorSVRCcW5SWWZtMjJUcTBnL0JhOUtzY0wKeHY1eGpBYXpzTjJKWko0ZzlkVU5ueGFGNGc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBdUxwUXVUT3NjYnVQWHhCc0p2dmlRcStCNndMdHpnd2VJS2VxOEpEUklSN1hld2NRCnY3OG9qQVMyY3dBL2ExLzdORnVXOWRhdkVyNFE4NWR2OXNxVHZoSHVpYjJVZ2VNejBKYXpaQjE4K2xHTUUvRUsKRm52K3NPZk4zcWRSYWtuU0VoNVhBTjFqdHRtYmsxYlM0RGFqVGVEbFNrSlRKU29oeVhqc0dINDg1NjlRUjdXSApDeE90cVpibTZXODNtOGxab0YyWVZlRDVLU01rTEpoSC93aTAxMmVqVHlPVDllbGxtYnQvR0xEeUx3am4wbEFhClp1M1dvT0VkdXJPeXUyM2IxcHpPczZFZXcwQWJrNndKNkNHQ1ZiMWxWWDE3ZHhFWGRNSUxhbmJOR0ZzSWNRbTYKZHo0RWNOYlBEUzRHVWRldC9BelltL2hQMm84SmR4NXB6QXdTaHdJREFRQUJBb0lCQVFDSnlvaHVMU3BEUjhtZworb29CNWo4V3lQMmF4SHVJQjZmdGFjUHJYOHB1N3llQ1lIblEzWkVzS0ZQRG9ucXI2Rk5qOGJIQVBOd29tZGZoCks2UGJyYTNZeUYxckp4dUFhMjU1OS85bC9VejlGeGpxd3hCb1J5TnE1KzI3V0lrMVJFMUxNSkJyVjdpS2F2Vk8KU1NSUkZOQnBSZ2tpaENpcS95dG1zaWxCOStBTVhJZHF5SWFvZyszL3FqNWxWb2RjM2xpMWpuWEZyT3FmV1NMeApnYWEyTFQ3STQydURaQzBlVkNTVzRQcG9nZFhLUEgwSGtuL2ZXM0FBelo1dkw4amJGc3J6NHI2WHYvM2N1bTJXCi9tUHBGOFl5SlNEdDZZNytRTmVwYlhNaFRFRHY4QVVMTzJTWXB5b3A2ZFNWQXMycXI3em5iMm9XbXF0UjJ5Q3YKYy9ISURIb0pBb0dCQU9CdzNrOWRuRFozSUlBL2JhMkdXZnorVDVHMGk0S0VleWhtTlFia1RRK2NiZkZENElVegpjZEJpdjZ5VWxncithU2svZ2xNbW9KcnFHV3FjMmZCSWZpRGFhSUE5NHhnRzIrcUFrSG5WTXZRMEY2QnJWQkZXCnBjdVBKVHBDeHZpTHlwTmlXZ0sxZm1QTnNDbEFGMHNVYnpnbVkxTDlSNlFqVWxsRzNVRGJmc25GQW9HQkFOS3oKNkF2VEdGZVFXS0tGemZiQ3MxMFlLTFNnYzFFWUZpaVpNa2kyNE5lczhwVHpEYzZ5Q2JpTUZyK1R5YmlSQnNRbQplbTdCYmJocE12ditIcXpsSWFzS2RkNVQwTHZ2YVd2c1lieDBBS0dNd2tuTzZZbHNNT0xJYVdUbTBSdll5b1I5CkpMMWkyVTlETitwODBVRzVHcG9iNEJJY3REdHZ1MUk3ZlViazRndmJBb0dBTGV5cWNJNzFBZWdLVEhPdUc0MmMKS0RwWlNiVXB2c0VnK2prL3JITldtVlVtNGZGRHBiM0xFaHJDb2F1ZHNBNHlzbS8rV01sVW41NDdLU2VES0xtTQpwV2hMYmNJOEQ1U0h0MG9yUmVLc0ZHLzhUYVRvaE11NERSanpReUthMkF5eW5NbkpKVGpCN2VZT244SXZnZnRpCmJwamNSZ1R4ZmRLRWJTUWs3YnA4RFFrQ2dZRUFnRy9VR2lraVpIWUQ0WVhveCt0bFJIRXVsdlJiZHVwVXo0aWEKNDBJL0NwbE5BY2lxK1AwRCtlL0RDaUsvU3ZkMGhXcmpKTkpaM0ppYjBJbldEeFJaRXBiOHhIcVkrWVoxMzZpbQo1eVpiSUI3YWEvMXAxREFVR0ptTHpVcjUycHlxemxvdVpCZDJXZCtpblJoYXdsSmdTZUtHRXVSV1pRaTF5ZW1qCmN1eWdjaE1DZ1lBa295VGlWblBoOVRaNys1YnVEUmVway9tREtFUmR4Q09SVVlLd0NFc3JnTFFrUXRQL0Vlai8KMXY2aHN1ZFJKUmJuMzBaWEZxMW8vdlpscTRPeWd2TGFCQkYyRGl6OWJDcFAvNmx3RmNVRVIwc3EyaVMrQXY0MQoyVXhHQTdiOTVVTWowSXRPS0NYWkRsU2t2L3JnTWNJYnBtTXo4M3Uza2xzMk5QZlJjRnVaTWc9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFakNDQWZxZ0F3SUJBZ0lSQU9BWXV4Tjc1ZXBsTEh2djZ0M0lvazB3RFFZSktvWklodmNOQVFFTEJRQXcKRXpFUk1BOEdBMVVFQXhNSWJtZHBibmd0WTJFd0hoY05NalV3TXpFd01UUTBNekV4V2hjTk1qWXdNekV3TVRRMApNekV4V2pBVE1SRXdEd1lEVlFRREV3aHVaMmx1ZUMxallUQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQCkFEQ0NBUW9DZ2dFQkFMVlZUdFFkRkQ2c3F2Ujd2eGU3NUU4Nmkwa3V3SHdFSThSbUc0R0xvVTQxSk0vVEJkQUUKbHNYOG9rYW9MM2FKVWs4NG9xbUwvTEF6aWI5N2s3NzJGS0NPZ3drNjEvSCt5QlJBTDFEemFTbXd3WHNwMUFVbAo0alJrZXVobzh1c2NyM08zakZLZXo1dmx6aUg5NVM2MU9vby9CaFlnd2ErT3UwM2xJUmhWaFZ4WFR5OW5hS0dhCm51T2F0VWhMM1Z3cEtoSjQvaUd0V28xMEV6NHhmN2pPOUxWdHUvUXl3NDVORDd0aWF5cVB4MGh1VFF1bHIrR1cKRndsejJXSUJSVHd0RlFwdUQ0M1AzTDA3SHFiSStqZVZERGtLUnRQNnJJMk10aSsvRmlnb2QyUWRxOERVdTRBOQpuU1dlaFhiUjZKcnNTSGtpN1BtVEJrUHA2aTJwM1UzY2dFOENBd0VBQWFOaE1GOHdEZ1lEVlIwUEFRSC9CQVFECkFnS2tNQjBHQTFVZEpRUVdNQlFHQ0NzR0FRVUZCd01CQmdnckJnRUZCUWNEQWpBUEJnTlZIUk1CQWY4RUJUQUQKQVFIL01CMEdBMVVkRGdRV0JCVDE3MFFIMW5zYXNqT1lKOWN2V2tEZ3A5UDMyVEFOQmdrcWhraUc5dzBCQVFzRgpBQU9DQVFFQVNqQUdxd3dWUHFpMjBabDI1eGdySGxHc2dFenI4c1E1VkpUU3pHdGFIZEQ2OGkyZTFMUDRJRG9MCjlSenJCRXhJUW5TNWlRNE9GeHZONk9kTURTemdGWDRlcWlWL1V2V0ZmZG5zUklMaDBPREJEOE0yTWJpRFZWS3IKNzNkR0hnTUJjcElyN0xySFRFNVRmNzJjMlJlRlJaRDhhMURjODB2cHJYZEJkNmFrWG9ya0NUck1aRWltN2dFMAplYU1ienJFRnA5Y3VzcmJNQzBlWVNEckhCZXpISzFLajJ0amhZUkxJVUZuMjlrL25LSy9PMDkyUm56R0xWZWhhCmgzd1J2QnJBSm9scmYyTWRNcXJUVmtvV3h3UXBhWnJlVXBZVlRId2pndXpQa1dDSk5kSmJ2Zk81VHpHb1RMM3QKbUlIamdsZFBnNGcrSUJoN3NsTDgyZkpabDFRRzVRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+---
+# Source: nginx/charts/nginx/templates/server-block-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ersilia-nginx-server-block
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+data:
+  server-block.conf: |-
+    server {
+      listen 8080;
+      
+      location /models/eos3804/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-3804.eos-models.svc.cluster.local:8080/;
+      }
+    }
+    server {
+      listen 8080;
+      
+      location /models/eos4e40/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4e40.eos-models.svc.cluster.local:8080/;
+      }
+    }
+    server {
+      listen 8080;
+      
+      location /models/eos4wt0/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4wt0.eos-models.svc.cluster.local:8080/;
+      }
+    }    
+    server {
+      listen 8080;
+      
+      location /models/eos4zfy/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-4zfy.eos-models.svc.cluster.local:8080/;
+      }
+    }    
+    server {
+      listen 8080;
+      
+      location /models/eos7d58/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-7d58.eos-models.svc.cluster.local:8080/;
+      }
+    }          
+    server {
+      listen 8080;
+      
+      location /models/eos80ch/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-80ch.eos-models.svc.cluster.local:8080/;
+      }
+    }      
+    server {
+      listen 8080;
+      
+      location /models/eos8aa5/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-8aa5.eos-models.svc.cluster.local:8080/;
+      }
+    }    
+    server {
+      listen 8080;
+      
+      location /models/eos9gg2/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-9gg2.eos-models.svc.cluster.local:8080/;
+      }
+    }       
+    server {
+      listen 8080;
+      
+      location /models/eos9ivc/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-9ivc.eos-models.svc.cluster.local:8080/;
+      }
+    }
+    server {
+      listen 8080;
+      
+      location /models/eos5axz/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://eos-model-5axz.eos-models.svc.cluster.local:8080/;
+      }
+    }
+---
+# Source: nginx/charts/nginx/templates/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ersilia-nginx
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+  annotations:
+spec:
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: "Cluster"
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: https
+  selector:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/name: nginx
+---
+# Source: nginx/charts/nginx/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ersilia-nginx
+  namespace: "ingress-nginx"
+  labels:
+    app.kubernetes.io/instance: ersilia
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.27.4
+    helm.sh/chart: nginx-19.0.1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  strategy:
+    rollingUpdate: {}
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: ersilia
+      app.kubernetes.io/name: nginx
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: ersilia
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: nginx
+        app.kubernetes.io/version: 1.27.4
+        helm.sh/chart: nginx-19.0.1
+      annotations:
+        checksum/server-block-configuration: 90d6410f32b9284ccdcda434dc968644bb6ebfad148e36ff54ba85dee4761f5d
+    spec:
+      
+      shareProcessNamespace: false
+      serviceAccountName: ersilia-nginx
+      automountServiceAccountToken: false
+      affinity:
+        podAffinity:
+          
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/instance: ersilia
+                    app.kubernetes.io/name: nginx
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+        nodeAffinity:
+          
+      hostNetwork: false
+      hostIPC: false
+      securityContext:
+        fsGroup: 1001
+        fsGroupChangePolicy: Always
+        supplementalGroups: []
+        sysctls: []
+      initContainers:
+        - name: preserve-logs-symlinks
+          image: docker.io/bitnami/nginx:1.27.4-debian-12-r5
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsGroup: 1001
+            runAsNonRoot: true
+            runAsUser: 1001
+            seLinuxOptions: {}
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            limits:
+              cpu: 150m
+              ephemeral-storage: 2Gi
+              memory: 192Mi
+            requests:
+              cpu: 100m
+              ephemeral-storage: 50Mi
+              memory: 128Mi
+          command:
+            - /bin/bash
+          args:
+            - -ec
+            - |
+              #!/bin/bash
+              . /opt/bitnami/scripts/libfs.sh
+              # We copy the logs folder because it has symlinks to stdout and stderr
+              if ! is_dir_empty /opt/bitnami/nginx/logs; then
+                cp -r /opt/bitnami/nginx/logs /emptydir/app-logs-dir
+              fi
+          volumeMounts:
+            - name: empty-dir
+              mountPath: /emptydir
+      containers:
+        - name: nginx
+          image: docker.io/bitnami/nginx:1.27.4-debian-12-r5
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsGroup: 1001
+            runAsNonRoot: true
+            runAsUser: 1001
+            seLinuxOptions: {}
+            seccompProfile:
+              type: RuntimeDefault
+          env:
+            - name: BITNAMI_DEBUG
+              value: "false"
+            - name: NGINX_HTTP_PORT_NUMBER
+              value: "8080"
+            - name: NGINX_HTTPS_PORT_NUMBER
+              value: "8443"
+          envFrom:
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: https
+              containerPort: 8443
+          livenessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            tcpSocket:
+              port: http
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+            httpGet:
+              path: /
+              port: http
+          resources:
+            limits:
+              cpu: 150m
+              ephemeral-storage: 2Gi
+              memory: 192Mi
+            requests:
+              cpu: 100m
+              ephemeral-storage: 50Mi
+              memory: 128Mi
+          volumeMounts:
+            - name: empty-dir
+              mountPath: /tmp
+              subPath: tmp-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/conf
+              subPath: app-conf-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/logs
+              subPath: app-logs-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/tmp
+              subPath: app-tmp-dir
+            - name: nginx-server-block
+              mountPath: /opt/bitnami/nginx/conf/server_blocks
+            - name: certificate
+              mountPath: /certs
+      volumes:
+        - name: empty-dir
+          emptyDir: {}
+        - name: certificate
+          secret:
+            secretName: ersilia-nginx-tls
+            items:
+              - key: tls.crt
+                path: server.crt
+              - key: tls.key
+                path: server.key
+        - name: nginx-server-block
+          configMap:
+            name: ersilia-nginx-server-block
+---
+# Source: nginx/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ersilia-nginx
+  namespace: ingress-nginx
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: ersilia-nginx-ingress
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ersilia-nginx
+              port: 
+                number: 80
