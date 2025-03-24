@@ -47,6 +47,6 @@ eos:
       modelSize: 500Mi
       noMemoryLimit: true
 
-     - name: '5axz'
+    - name: '5axz'
       modelSize: 500Mi
       noMemoryLimit: true
