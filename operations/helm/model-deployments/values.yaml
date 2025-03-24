@@ -46,3 +46,7 @@ eos:
     - name: '9ivc'
       modelSize: 500Mi
       noMemoryLimit: true
+
+     - name: '5axz'
+      modelSize: 500Mi
+      noMemoryLimit: true
